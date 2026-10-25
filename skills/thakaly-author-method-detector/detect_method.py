@@ -16,8 +16,10 @@ REPORT = re.compile(r'(?:قال|ذكر|حكى|روى|نقل)\s+[^.!؟\n:،]{1,85
 AUTHOR_RESTART = re.compile(r'قال\s+أبو\s+جعفر\s*[:،]|قال\s+المؤلف\s*[:،]')
 OBJECTION = re.compile(r'فإن\s+قيل|فإن\s+قال\s+(?:لنا\s+)?قائل|قد\s+يقال')
 
+
 def _quoted(prefix):
  return prefix.count('«') > prefix.count('»') or prefix.count('“') > prefix.count('”')
+
 
 def _segment_lines(raw):
  for line in re.finditer(r'[^\n]+', raw):
@@ -25,6 +27,7 @@ def _segment_lines(raw):
   for part in re.finditer(r'[^.!؟]+(?:[.!؟]|$)',body):
    if part.group().strip():
     yield part.group(),offset+part.start(),body,line.start()
+
 
 def extract(doc):
  if not isinstance(doc,dict) or not isinstance(doc.get('text'),str) or not doc['text'].strip():
@@ -38,20 +41,28 @@ def extract(doc):
    for pattern in patterns:
     for hit in re.finditer(pattern,segment):
      hits.append((category,hit.start(),hit.end(),hit.group()))
+  # One lexical token may be matched by a narrower and a longer pattern in the same category.
   dedup=[]
   for item in sorted(hits,key=lambda h:(h[1],-(h[2]-h[1]),h[0])):
    if any(x[0]==item[0] and x[1]<=item[1]<x[2] for x in dedup):continue
    dedup.append(item)
   for category,start,end,trigger in dedup:
    if category=='response' and trigger=='قلنا':
+    # Bare 'قلنا' usually occurs in explanations and cannot establish objection/response.
+    # Keep only when an explicit objection is present in the same paragraph.
     if not OBJECTION.search(line[:offset-line_offset+start]):continue
     if re.search(r'(?:إنما|صحة\s+ما|معنى\s+ما|دليل\s+ما)\s*$',segment[:start]):continue
+   # The passive narrative 'قيل له' is not by itself a response by the author.
    if category=='response' and re.fullmatch(r'قيل\s+له', trigger):
-    if not OBJECTION.search(line[:offset-line_offset+start]):continue
+    if not OBJECTION.search(line[:offset-line_offset+start]):
+     continue
    if category=='response' and not OBJECTION.search(line[:offset-line_offset+start]):
+    # A response phrase is only a strong candidate with an objection in the same paragraph.
+    # Otherwise keep evidence but mark it contextually uncertain.
     response_without_objection=True
    else:response_without_objection=False
    before=segment[:start]
+   # An explicit author restart clears earlier transmission state, if it is outside quotation.
    restarts=[m for m in AUTHOR_RESTART.finditer(before) if not _quoted(before[:m.start()])]
    local=before[restarts[-1].end():] if restarts else before
    mediated=bool(REPORT.search(local))

@@ -6,7 +6,8 @@ class TestDetector(unittest.TestCase):
  def check(self,text):return extract({'text':text,'source':{'title':'شواهد مصطنعة للاختبار','location':'تجربة'}})
  def test_preference(self):
   x=self.check('والأولى عندي حمل اللفظ على العموم.')
-  self.assertEqual(x['counts']['preference'],1);self.assertEqual(x['items'][0]['assessment'],'candidate')
+  self.assertEqual(x['counts']['preference'],1)
+  self.assertEqual(x['items'][0]['assessment'],'candidate')
  def test_attribution_warning(self):
   x=self.check('قال بعض أهل العلم: والصحيح عندي حمله على المعنى الآخر.')
   self.assertIn('preceded_by_transmission_in_same_segment',x['items'][0]['warnings'])
@@ -15,12 +16,15 @@ class TestDetector(unittest.TestCase):
   self.assertIn('inside_quotation_marks',x['items'][0]['warnings'])
  def test_objection_response(self):
   x=self.check('فإن قيل: كيف ذلك؟ قلنا: لأن الدليل ظاهر.')
-  self.assertEqual(x['counts']['objection'],1);self.assertEqual(x['counts']['response'],1);self.assertEqual(x['counts']['reasoning'],1)
+  self.assertEqual(x['counts']['objection'],1);self.assertEqual(x['counts']['response'],1)
+  self.assertEqual(x['counts']['reasoning'],1)
  def test_consensus_caution(self):
-  x=self.check('أجمعوا على هذا الحكم.');self.assertEqual(x['items'][0]['assessment'],'review_required')
+  x=self.check('أجمعوا على هذا الحكم.')
+  self.assertEqual(x['items'][0]['assessment'],'review_required')
  def test_exact_evidence_offsets(self):
   s='تمهيد.\nوالصحيح عندي أن هذا أولى.'
-  x=self.check(s);it=x['items'][0];self.assertEqual(s[it['start']:it['end']],it['trigger'])
+  x=self.check(s)
+  it=x['items'][0];self.assertEqual(s[it['start']:it['end']],it['trigger'])
  def test_no_invention(self):
   x=extract({'text':'والأولى عندي هذا.'})
   self.assertNotIn('title',x['source']);self.assertIsNone(x['items'][0]['source_location'])

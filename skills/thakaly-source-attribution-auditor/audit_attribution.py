@@ -9,6 +9,8 @@ REQUIRED = ('id','source_title','source_location','source_excerpt','attributed_t
             'attribution_formula','attribution_mode','transmission_nature','text_layer','quote')
 MODES = {'direct','mediated','uncertain'}
 NATURES = {'verbatim','paraphrase','summary','unknown'}
+# Analyze attribution FORMULA first; inspect the opening of excerpt only when needed.
+# Keep a reviewer in the loop: these cues can describe a quotation inside direct author prose.
 CHAIN_CUES = re.compile(r'(?:^|[\s،:؛])(?:أخبرنا|حدثنا|حدثني|أخبرني|أنبأنا|روى|روينا|رُوي|روي|عن)(?=[\s،:؛])')
 CHAIN_LINK = re.compile(r'(?:^|[\s،:؛])عن(?=[\s،:؛])')
 UNCERTAIN_CUES = re.compile(r'(?:بلغني|بلغنا|فيما بلغني|لا يحضرني|لا أذكر|لا أدري|فيما أحسب|يُروى|يروى|قيل|حُكي|حكي)')
@@ -32,6 +34,7 @@ def audit(item):
         issues.append({'code':'verbatim_quote_not_in_supplied_excerpt'})
     if item.get('claimed_verified_original') and mode != 'direct':
         issues.append({'code':'unjustified_original_source_verification'})
+
     formula = str(item.get('attribution_formula') or '')
     opening = str(excerpt or '')[:180]
     chain_detected = bool(CHAIN_CUES.search(formula) or CHAIN_CUES.search(opening))

@@ -3,7 +3,8 @@ from detect_method import extract
 
 class ContextRegressionV05(unittest.TestCase):
  def categories(self,s):
-  out=extract({'text':s});return {x['category'] for x in out['items']}
+  out=extract({'text':s})
+  return {x['category'] for x in out['items']}
  def test_consensus_plural(self):
   self.assertIn('consensus_reference',self.categories('فإن الجميع من الحجة مجمعون على هذا.'))
  def test_consensus_not_from_arbitrary_plural(self):

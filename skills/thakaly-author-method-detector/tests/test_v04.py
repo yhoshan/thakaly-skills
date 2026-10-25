@@ -9,7 +9,8 @@ class TestV04(unittest.TestCase):
   cats={x['category'] for x in o['items']}
   self.assertTrue(set(required)<=cats,(required,cats))
   self.assertFalse(set(excluded)&cats,(excluded,cats))
-  for x in o['items']:self.assertEqual(text[x['start']:x['end']],x['trigger'])
+  for x in o['items']:
+   self.assertEqual(text[x['start']:x['end']],x['trigger'])
   return o
  def test_consensus_hujja(self):self.check('وقد كان ذلك لإجماع الحجة من أهل التأويل عليه.',('consensus_reference',))
  def test_reason_wadhalika_an(self):self.check('وذلك أن الدليل يدل على ذلك.',('reasoning',))

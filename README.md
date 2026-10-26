@@ -20,9 +20,11 @@
 
 **[أدوات لخدمة الباحث العربي](collections/saud-al-aqeel/README.md)**
 
-مهارات في تحرير النصوص العربية وتدقيق الحواشي والفهارس والاقتباسات، مع **ثلاث أدوات جديدة لمستندات Word**: [جرد الإشارات المرجعية](skills/docx-bookmark-inventory/)، [استخراج تعليقات المراجعين](skills/docx-review-comments-extractor/)، و[جمع المقاطع المظللة](skills/docx-highlight-extractor/).
+**تنفيذات مستقلة مستلهمة من وظائف برمجيات الدكتور سعود العقيل** في تحرير النصوص والحواشي والفهارس، ومنها ثلاث أدوات قابلة للتشغيل لمستندات Word: [جرد الإشارات المرجعية](skills/docx-bookmark-inventory/)، [استخراج تعليقات المراجعين](skills/docx-review-comments-extractor/)، و[جمع المقاطع المظللة](skills/docx-highlight-extractor/).
 
 ## الدراسات السابقة والمراجع
+
+**الحالة: أدوات Python قابلة للتشغيل، ذات اختبارات أولية.**
 
 - [خريطة الدراسات السابقة](skills/literature-map/) — تنظيم الدراسات بحسب الموضوع والمنهج والسنة.
 - [مستخرج بيانات الدراسات](skills/study-extractor/) — فحص اكتمال بيانات الدراسات.
@@ -30,6 +32,8 @@
 - [مراجع البيانات الببليوغرافية](skills/reference-auditor/) — كشف النواقص والتكرارات المحتملة.
 
 ## التحرير والبحث العلمي
+
+**الحالة: مهارات إرشادية.**
 
 - [سلامة النص العربي](skills/arabic-text-integrity/)
 - [تدقيق الاقتباسات الشرعية](skills/quran-hadith-quote-auditor/)
@@ -41,6 +45,8 @@
 - [جودة البيانات العربية](skills/arabic-research-data-quality/)
 
 ## أدوات علمية وتقنية إضافية
+
+**الحالة: تتفاوت بين أداة تشغيلية وبطاقات قيد التطوير؛ راجع وصف كل مهارة.**
 
 - [مدقق المصدر والنسبة](skills/thakaly-source-attribution-auditor/)
 - [رقمنة الكتب والكشافات](skills/marqoom-book-digitization/)

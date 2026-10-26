@@ -1,0 +1,13 @@
+{
+  "id": "m050_0023:26",
+  "file": "AutoPlay\\Docs\\00-SAUD-MACROS\\Temp\\SAUDMAC12.dotm",
+  "module": "frm11OthSelectBookmark.frm",
+  "name": "UserForm_Activate",
+  "line_start": 26,
+  "line_end": 34,
+  "archive": "01-SAUDMACFull_137_1.exe",
+  "archive_sha256": "1ADA3217327DDA9E4726AEA6E86D03541928EC20D4BC9AD34D406BC152E7C76E",
+  "repository_baseline": "8007866ab6234d8727bd106f3302aa3781e273fe",
+  "relationship": "Independent implementation of a limited read-only subset; no original code or database included",
+  "line_convention": "1-based lines in UTF-8 VBA text extracted with normalized LF endings"
+}

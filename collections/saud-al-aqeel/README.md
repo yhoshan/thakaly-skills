@@ -9,7 +9,7 @@
 
 **12 بطاقة مهارة** تغطي النص العربي والتشكيل، وحواشي Word، والفهارس، والشعر، وعلامات صفحات الكتب التراثية.
 
-- **تحرير النص:** [فواصل العربية](../../skills/arabic-punctuation-auditor/) (نموذج برمجي أولي محدود)، [تكرار التشكيل](../../skills/diacritic-anomaly-auditor/)، [ترتيب الحركات](../../skills/arabic-diacritic-order-auditor/)، [إحالات الآيات](../../skills/quran-citation-normalizer/).
+- **تحرير النص:** [فواصل العربية](../../skills/arabic-punctuation-auditor/) (نموذج برمجي أولي باختبارات أساسية)، [تكرار التشكيل](../../skills/diacritic-anomaly-auditor/)، [ترتيب الحركات](../../skills/arabic-diacritic-order-auditor/)، [إحالات الآيات](../../skills/quran-citation-normalizer/).
 - **الحواشي والتوثيق:** [الحواشي الفارغة](../../skills/empty-footnotes-auditor/)، [جرد الحواشي](../../skills/footnote-reference-inventory/)، [مرشحات المراجع](../../skills/footnote-source-candidates/).
 - **الفهارس:** [التكرار](../../skills/index-entry-duplicate-auditor/)، [الترتيب](../../skills/index-entry-order-auditor/)، [فهرس الأعلام](../../skills/index-entry-review/).
 - **الشعر والكتب:** [فواصل الأشطر](../../skills/poetry-hemistich-separator-auditor/)، [علامات صفحات الشاملة](../../skills/shamela-page-marker-audit/).

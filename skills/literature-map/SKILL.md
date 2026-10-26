@@ -1,5 +1,5 @@
 ---
-name: thakaly-literature-map
+name: literature-map
 description: إعداد خريطة موضوعية وزمنية للدراسات السابقة من قائمة CSV دون ادعاء فحص كامل الأدبيات.
 ---
 # خريطة الدراسات السابقة

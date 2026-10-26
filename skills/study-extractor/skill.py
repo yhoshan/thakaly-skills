@@ -1,3 +1,4 @@
+from pathlib import Path
 import csv,sys
 REQUIRED={'title','author','year','method','findings','source_locator'}
 def analyze(rows):
@@ -10,7 +11,13 @@ def run(input_path,output_path):
    raise ValueError('الحقول المطلوبة: '+', '.join(sorted(REQUIRED)))
   rows=list(rd)
  out=analyze(rows)
- with open(output_path,'w',encoding='utf-8-sig',newline='') as f:
+ source=Path(input_path)
+ target=Path(output_path)
+ if source.resolve()==target.resolve():
+  raise ValueError('لا يجوز الكتابة فوق ملف الإدخال')
+ if target.is_symlink():
+  raise FileExistsError('لا يجوز استخدام رابط رمزي للإخراج')
+ with open(output_path,'x',encoding='utf-8-sig',newline='') as f:
   if not out:
    f.write('')
   else:

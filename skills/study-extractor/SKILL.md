@@ -1,5 +1,5 @@
 ---
-name: thakaly-study-extractor
+name: study-extractor
 description: فحص جدول ملخصات الدراسات والتأكد من اكتمال البيانات والأدلة والمواضع دون اختلاق تفاصيل.
 ---
 # مستخرج بيانات الدراسات

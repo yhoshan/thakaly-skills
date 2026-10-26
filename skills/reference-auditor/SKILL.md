@@ -1,5 +1,5 @@
 ---
-name: thakaly-reference-auditor
+name: reference-auditor
 description: رصد السجلات الببليوغرافية المتكررة والناقصة دون حذف أو تزوير مراجع.
 ---
 # مراجع البيانات الببليوغرافية

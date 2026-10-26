@@ -28,7 +28,7 @@
 
 **البطاقات الحالية (12):**
 
-- [فاحص الفواصل العربية](skills/arabic-punctuation-auditor/) — نموذج أولي محدود الوظيفة؛ لم تُستكمل اختبارات المستودع.
+- [فاحص الفواصل العربية](skills/arabic-punctuation-auditor/) — نموذج أولي محدود؛ أُضيفت له 4 اختبارات أساسية، ولا يزال يحتاج تحققًا موسعًا.
 - [فاحص تكرار التشكيل](skills/diacritic-anomaly-auditor/)، [ترتيب الشدة والحركات](skills/arabic-diacritic-order-auditor/)، [توحيد إحالات الآيات](skills/quran-citation-normalizer/).
 - [جرد إشارات الحواشي](skills/footnote-reference-inventory/)، [كشف الحواشي الفارغة](skills/empty-footnotes-auditor/)، [استخراج مرشحات المراجع](skills/footnote-source-candidates/).
 - [فحص المداخل المكررة](skills/index-entry-duplicate-auditor/)، [ترتيب الفهارس](skills/index-entry-order-auditor/)، [مراجعة الأعلام](skills/index-entry-review/).
